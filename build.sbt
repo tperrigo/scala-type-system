@@ -1,4 +1,4 @@
-name := "typelevel"
+name := "scala-type-system"
 
 organization := "com.werner.opttech"
 
