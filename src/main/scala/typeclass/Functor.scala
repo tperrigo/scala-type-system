@@ -3,8 +3,18 @@ package typeclass
 
 import simulacrum._
 
+/**
+ * Functor instance based on Michael Pilquist's videos on Functional Structures in Scala
+ */
 @typeclass trait Functor[F[_]] { self =>
+  /**
+   * Map is a method for transforming a value within a context (a type contructor).
+   * It is the signature method for Functor, and must be implemented for any type
+   * which requires a Functor instance.
+   */
   def map[A, B](fa: F[A])(f: A => B): F[B]
+
+  // Derived methods: Given a (lawful) implementation of map, we can derive a set of useful methods for working with funtors
 
   def lift[A, B](f: A => B): F[A] => F[B] = fa => map(fa)(f)
 
@@ -18,6 +28,9 @@ import simulacrum._
   }
 }
 
+/**
+ * Functor companion object.  Contains Functor instances for several common types.
+ */
 object Functor {
   implicit val listFunctor: Functor[List] = new Functor[List] {
     def map[A, B](fa: List[A])(f: A => B): List[B] = fa.map(f)
