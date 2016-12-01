@@ -1,4 +1,4 @@
-package com.werner.opttech
+package tperrigo
 package typelevel
 
 // Value-level programming

@@ -1,6 +1,6 @@
 name := "scala-type-system"
 
-organization := "com.werner.opttech"
+organization := "tperrigo"
 
 version := "1.0.0"
 
@@ -40,7 +40,9 @@ scalacOptions ++= Seq(
 lazy val shapelessVerion = "2.3.2"
 lazy val scalacticVersion = "3.0.0"
 lazy val scalatestVersion = "3.0.0"
+lazy val simulacrumVersion = "0.10.0"
 
 libraryDependencies ++= Seq("com.chuusai" %% "shapeless" % shapelessVerion,
   "org.scalactic" %% "scalactic" % scalacticVersion,
+  "com.github.mpilquist" %% "simulacrum" % simulacrumVersion,
   "org.scalatest" %% "scalatest" % scalatestVersion % "test")
